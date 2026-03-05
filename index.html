@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ART Association</title>
+
+<link rel="icon" href="images/logoimage.jpg">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+font-family:'Inter',sans-serif;
+}
+
+/* STICKY NAVBAR */
+
+header{
+position:sticky;
+top:0;
+z-index:1000;
+backdrop-filter:blur(10px);
+background:rgba(255,255,255,0.9);
+}
+
+/* HERO SLIDER */
+
+.hero-slide{
+position:absolute;
+width:100%;
+height:100%;
+background-size:cover;
+background-position:center;
+transition:opacity 1s ease;
+}
+
+/* LOGO */
+
+.logo-container{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo-image{
+width:45px;
+height:45px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.logo-text{
+font-weight:700;
+font-size:18px;
+}
+
+/* SLIDER ARROWS */
+
+.slider-arrow{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:rgba(0,0,0,0.4);
+color:white;
+font-size:28px;
+padding:10px 16px;
+cursor:pointer;
+border-radius:6px;
+}
+
+.left-arrow{ left:20px }
+.right-arrow{ right:20px }
+
+/* DOTS */
+
+.slider-dots{
+position:absolute;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+display:flex;
+gap:10px;
+}
+
+.dot{
+width:10px;
+height:10px;
+background:white;
+border-radius:50%;
+opacity:0.5;
+cursor:pointer;
+}
+
+.dot.active{
+opacity:1;
+}
+
+/* LIGHTBOX */
+
+.lightbox{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+display:none;
+align-items:center;
+justify-content:center;
+}
+
+.lightbox img{
+max-width:80%;
+max-height:80%;
+border-radius:8px;
+}
+
+/* SOCIAL */
+
+.social-icons a{
+margin:0 10px;
+font-size:22px;
+}
+
+</style>
+
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+<!-- NAVBAR -->
+
+<header class="shadow-sm">
+
+<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+<div class="logo-container">
+
+<img src="images/logoimage.jpg" class="logo-image">
+
+<div class="logo-text">
+ART Association
+</div>
+
+</div>
+
+<nav class="space-x-6 font-medium">
+
+<a href="index.html">Home</a>
+<a href="gallery.html">Gallery</a>
+<a href="events.html">Events</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+
+<!-- HERO SLIDER -->
+
+<section class="relative h-[75vh] overflow-hidden">
+
+<div id="slide1" class="hero-slide" style="background-image:url('images/art1.jpg')"></div>
+<div id="slide2" class="hero-slide opacity-0" style="background-image:url('images/art2.jpg')"></div>
+<div id="slide3" class="hero-slide opacity-0" style="background-image:url('images/art3.jpg')"></div>
+
+<div class="slider-arrow left-arrow" onclick="prevSlide()">❮</div>
+<div class="slider-arrow right-arrow" onclick="nextSlide()">❯</div>
+
+<div class="slider-dots">
+<div class="dot active" onclick="goToSlide(0)"></div>
+<div class="dot" onclick="goToSlide(1)"></div>
+<div class="dot" onclick="goToSlide(2)"></div>
+</div>
+
+
+<div class="absolute inset-0 flex items-center justify-center">
+
+<div class="bg-black/50 p-10 rounded-xl max-w-2xl text-white text-center">
+
+<h2 class="text-5xl font-bold mb-4">
+Bringing Communities Together Through Culture & Creativity
+</h2>
+
+<p class="text-lg mb-6">
+Join us for cultural festivals, creative workshops, community gatherings,
+and vibrant events that celebrate traditions, art, and togetherness.
+</p>
+
+<a href="#" class="bg-red-500 px-6 py-3 rounded-lg hover:bg-red-600">
+Explore Events
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- MISSION -->
+
+<section class="max-w-6xl mx-auto px-6 py-20 text-center">
+
+<h2 class="text-3xl font-bold mb-6">
+Our Mission
+</h2>
+
+<p class="text-gray-600 max-w-3xl mx-auto">
+ART Association is a community-driven organization that brings people together
+through cultural festivals, art workshops, community gatherings, and
+creative events. Our goal is to celebrate traditions, support local artists,
+and create welcoming spaces where families and neighbors can connect,
+learn, and enjoy cultural experiences together.
+</p>
+
+</section>
+
+
+
+<!-- WHAT WE DO -->
+
+<section class="bg-gray-100 py-20">
+
+<div class="max-w-6xl mx-auto px-6">
+
+<h2 class="text-3xl font-bold text-center mb-12">
+What We Do
+</h2>
+
+<div class="grid md:grid-cols-3 gap-10 text-center">
+
+<div>
+<h3 class="font-semibold text-xl mb-2">Cultural Festivals</h3>
+<p class="text-gray-600">
+Celebrate traditions, music, food, and art through vibrant community festivals.
+</p>
+</div>
+
+<div>
+<h3 class="font-semibold text-xl mb-2">Creative Workshops</h3>
+<p class="text-gray-600">
+Hands-on art workshops for families, youth, and aspiring artists.
+</p>
+</div>
+
+<div>
+<h3 class="font-semibold text-xl mb-2">Community Gatherings</h3>
+<p class="text-gray-600">
+Bring neighbors together through cultural events, performances, and markets.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- UPCOMING EVENTS -->
+
+<section class="bg-white py-20">
+
+<div class="max-w-6xl mx-auto px-6">
+
+<h2 class="text-3xl font-bold text-center mb-12">
+Upcoming Events
+</h2>
+
+<div class="grid md:grid-cols-3 gap-8">
+
+
+<div>
+
+<img src="images/art2.jpg" class="gallery-img rounded-xl shadow cursor-pointer">
+
+<div class="p-6">
+
+<h3 class="font-semibold text-xl mb-2">
+Community Cultural Festival
+</h3>
+
+<p class="text-red-500 text-sm mb-3">
+June 14, 2026
+</p>
+
+<p class="text-gray-600 text-sm">
+Music, food stalls, art exhibits, and performances celebrating diverse traditions.
+</p>
+
+</div>
+
+</div>
+
+
+<div>
+
+<img src="images/art3.jpg" class="gallery-img rounded-xl shadow cursor-pointer">
+
+<div class="p-6">
+
+<h3 class="font-semibold text-xl mb-2">
+Family Creative Workshop
+</h3>
+
+<p class="text-red-500 text-sm mb-3">
+July 9, 2026
+</p>
+
+<p class="text-gray-600 text-sm">
+Hands-on painting, crafts, and creative activities for families and children.
+</p>
+
+</div>
+
+</div>
+
+
+<div>
+
+<img src="images/art4.jpg" class="gallery-img rounded-xl shadow cursor-pointer">
+
+<div class="p-6">
+
+<h3 class="font-semibold text-xl mb-2">
+Community Market & Art Stalls
+</h3>
+
+<p class="text-red-500 text-sm mb-3">
+August 3, 2026
+</p>
+
+<p class="text-gray-600 text-sm">
+Local artists, handmade crafts, food vendors, and live entertainment.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- COMMUNITY IMPACT -->
+
+<section class="bg-gray-900 text-white py-20">
+
+<div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10 text-center">
+
+<div>
+<h3 class="text-4xl font-bold text-red-500 counter" data-target="1500">0</h3>
+<p class="mt-2 text-gray-300">Community members engaged</p>
+</div>
+
+<div>
+<h3 class="text-4xl font-bold text-red-500 counter" data-target="75">0</h3>
+<p class="mt-2 text-gray-300">Local artists supported</p>
+</div>
+
+<div>
+<h3 class="text-4xl font-bold text-red-500 counter" data-target="40">0</h3>
+<p class="mt-2 text-gray-300">Events hosted annually</p>
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- GET INVOLVED -->
+
+<section class="bg-white py-20 text-center">
+
+<h2 class="text-3xl font-bold mb-4">
+Get Involved
+</h2>
+
+<p class="text-gray-600 mb-6 max-w-xl mx-auto">
+Attend festivals, host an event stall, volunteer at workshops,
+or collaborate with us to celebrate culture and creativity together.
+</p>
+
+<a href="#" class="bg-red-500 px-6 py-3 rounded-lg hover:bg-red-600">
+Contact Us
+</a>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer class="bg-gray-900 text-gray-300 py-12 text-center">
+
+<h3 class="text-xl font-semibold mb-4">
+ART Association
+</h3>
+
+<p class="mb-6 text-gray-400">
+Celebrating culture, creativity, and community.
+</p>
+
+<div class="social-icons mb-6">
+
+<a href="#">🌐</a>
+<a href="#">📸</a>
+<a href="#">👍</a>
+<a href="#">🐦</a>
+
+</div>
+
+<p class="text-sm text-gray-500">
+© 2026 ART Association — All rights reserved
+</p>
+
+</footer>
+
+
+
+<!-- LIGHTBOX -->
+
+<div class="lightbox" id="lightbox">
+<img id="lightbox-img">
+</div>
+
+
+
+<script>
+
+/* SLIDER */
+
+let slides=[
+document.getElementById("slide1"),
+document.getElementById("slide2"),
+document.getElementById("slide3")
+]
+
+let dots=document.querySelectorAll(".dot")
+let current=0
+
+function showSlide(index){
+
+slides[current].classList.add("opacity-0")
+dots[current].classList.remove("active")
+
+current=index
+
+slides[current].classList.remove("opacity-0")
+dots[current].classList.add("active")
+
+}
+
+function nextSlide(){
+showSlide((current+1)%slides.length)
+}
+
+function prevSlide(){
+showSlide((current-1+slides.length)%slides.length)
+}
+
+function goToSlide(i){
+showSlide(i)
+}
+
+setInterval(nextSlide,5000)
+
+
+
+/* COUNTERS */
+
+document.querySelectorAll('.counter').forEach(counter=>{
+
+const update=()=>{
+
+const target=+counter.getAttribute('data-target')
+const count=+counter.innerText
+
+const increment=target/200
+
+if(count<target){
+
+counter.innerText=Math.ceil(count+increment)
+setTimeout(update,10)
+
+}else{
+
+counter.innerText=target
+
+}
+
+}
+
+update()
+
+})
+
+
+/* LIGHTBOX */
+
+const images=document.querySelectorAll('.gallery-img')
+const lightbox=document.getElementById('lightbox')
+const lightboxImg=document.getElementById('lightbox-img')
+
+images.forEach(img=>{
+
+img.onclick=()=>{
+lightbox.style.display='flex'
+lightboxImg.src=img.src
+}
+
+})
+
+lightbox.onclick=()=>{
+lightbox.style.display='none'
+}
+
+</script>
+
+</body>
+
+</html>
